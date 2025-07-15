@@ -33,40 +33,39 @@ function FixedAnimation(){
 
 function BoxAnimation(){
     var heading = document.querySelectorAll(".heading");
-var description = document.getElementById("desbox");
-var imagebox = document.querySelector(".image-side");
+    var description = document.getElementById("desbox");
+    var imagebox = document.querySelector(".image-side");
 
-heading.forEach(function(h2){
-    if (h2.classList.contains("active")) {
-            const contentDiv = h2.closest(".content");
-            const imageUrl = contentDiv.getAttribute("data-image");
-            const paragraph = h2.nextElementSibling.textContent;
-            description.textContent = paragraph;
-            description.style.display = "block";
-            imagebox.style.backgroundImage = `url(${imageUrl})`;
-        } 
-})
- 
-heading.forEach(function(h2){
-    h2.addEventListener("click",function(){
-        heading.forEach(h => h.classList.remove("active")); 
-        h2.classList.add("active"); 
-
+    heading.forEach(function(h2){
         if (h2.classList.contains("active")) {
-            const contentDiv = h2.closest(".content");
-            const imageUrl = contentDiv.getAttribute("data-image");
-            const paragraph = h2.nextElementSibling.textContent;
-            description.textContent = paragraph;
-            description.style.display = "block";
-            imagebox.style.backgroundImage = `url(${imageUrl})`;
-        } 
+                const contentDiv = h2.closest(".content");
+                const imageUrl = contentDiv.getAttribute("data-image");
+                const paragraph = h2.nextElementSibling.textContent;
+                description.textContent = paragraph;
+                description.style.display = "block";
+                imagebox.style.backgroundImage = `url(${imageUrl})`;
+            } 
     })
-})
+ 
+    heading.forEach(function(h2){
+        h2.addEventListener("click",function(){
+            heading.forEach(h2 => h2.classList.remove("active")); 
+            h2.classList.add("active"); 
 
+            if (h2.classList.contains("active")) {
+                const contentDiv = h2.closest(".content");
+                const imageUrl = contentDiv.getAttribute("data-image");
+                const paragraph = h2.nextElementSibling.textContent;
+                description.textContent = paragraph;
+                description.style.display = "block";
+                imagebox.style.backgroundImage = `url(${imageUrl})`;
+            } 
+        })
+    })
 }
 
 function SwiperAnimation(){
-    var swiper = new Swiper(".mySwiper", {
+    var swiper = new swiper(".mySwiper", {
         grabCursor: true,
         breakpoints: {
             0: {
