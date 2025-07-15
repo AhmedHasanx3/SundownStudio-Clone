@@ -3,12 +3,13 @@ const scroll = new LocomotiveScroll({
     smooth: true
 });
 
+window.onload = () => {
+    OpeningAnimation();
+};
 function OpeningAnimation(){
-    window.onload = () => {
-    setTimeout(() =>{
+   setTimeout(() =>{
         document.querySelector('.opening-animation').style.top = "-100%";
     },3000)
-    }
 }
 
 function FixedAnimation(){
@@ -65,7 +66,7 @@ function BoxAnimation(){
 }
 
 function SwiperAnimation(){
-    var swiper = new swiper(".mySwiper", {
+    var swiper = new Swiper(".mySwiper", {
         grabCursor: true,
         breakpoints: {
             0: {
@@ -92,4 +93,3 @@ function SwiperAnimation(){
 FixedAnimation()
 BoxAnimation()
 SwiperAnimation()
-OpeningAnimation()
